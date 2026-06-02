@@ -1,49 +1,49 @@
 import type { Config } from "tailwindcss";
 
+import colors from "tailwindcss/colors";
+import { default as flattenColorPalette } from "tailwindcss/lib/util/flattenColorPalette";
+
+function addVariablesForColors({ addBase, theme }: any) {
+    const allColors = flattenColorPalette(theme('colors'));
+    const newVars = Object.fromEntries(
+        Object.entries(allColors).map(([key, value]) => [`--${key}`, value])
+    );
+    addBase({
+        ':root': newVars,
+    });
+}
+
 const config: Config = {
     content: [
-        "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-        "./components/**/*.{js,ts,jsx,tsx,mdx}",
-        "./app/**/*.{js,ts,jsx,tsx,mdx}",
-        "./src/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     darkMode: 'class',
     theme: {
         extend: {
-            colors: {
-                primary: "#2563eb",
-                secondary: "#9333ea",
-                background: "#0f172a",
-                foreground: "#f8fafc",
-            },
-
-            borderRadius: {
-                xl: "1rem",
-                "2xl": "1.5rem",
-            },
-
-            fontFamily: {
-                sans: ["Inter", "sans-serif"],
-            },
-
             animation: {
-                float: "float 3s ease-in-out infinite",
+                spotlight: "spotlight 2s ease .75s 1 forwards",
+                scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite"
             },
-
+            backgroundImage: {
+                "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+                "gradient-conic":
+                    "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+            },
             keyframes: {
-                float: {
-                    "0%, 100%": {
-                        transform: "translateY(0px)",
-                    },
-                    "50%": {
-                        transform: "translateY(-10px)",
+                spotlight: {
+                    '0%': { opacity: '0', transform: 'translate(-72%, -62%) scale(0.5)' },
+                    '100%': { opacity: '1', transform: 'translate(-50%,-40%) scale(1)' },
+                },
+                scroll: {
+                    to: {
+                        transform: "translate(calc(-50% - 0.5rem))",
                     },
                 },
-            },
+            }
         },
     },
-
-    plugins: [],
+    plugins: [addVariablesForColors],
 };
-
 export default config;

@@ -6,3 +6,7 @@ function cn(...inputs: ClassValue[]) {
 }
 
 export {cn};
+export type SpotlightProps = {
+    className?: string;
+    fill?: string;
+};
