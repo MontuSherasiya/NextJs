@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
 import FeaturedCourses from "../components/FeaturedCourses";
+import WhyChooseUs from "../components/WhyChooseUs";
 
 const inter = Inter({
   subsets: ["latin"]
@@ -33,6 +34,9 @@ export default function RootLayout({
         </div>
         <div>
           <FeaturedCourses />
+        </div>
+        <div>
+          <WhyChooseUs />
         </div>
       </body>
     </html>
