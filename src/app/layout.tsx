@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
+import FeaturedCourses from "../components/FeaturedCourses";
 
 const inter = Inter({
   subsets: ["latin"]
@@ -28,7 +29,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="relative w-full flex items-center justify-center">
           <Navbar />
-          <HeroSection/>
+          <HeroSection />
+        </div>
+        <div>
+          <FeaturedCourses />
         </div>
       </body>
     </html>
