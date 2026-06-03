@@ -7,12 +7,11 @@ import HeroSection from "../components/HeroSection";
 import FeaturedCourses from "../components/FeaturedCourses";
 import WhyChooseUs from "../components/WhyChooseUs";
 import MusicSchoolTestimonials from "../components/TestimonialCards";
+import UpcomingWebinars from "../components/UpcomingWebinars";
 
 const inter = Inter({
   subsets: ["latin"]
 });
-
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -39,6 +38,9 @@ export default function RootLayout({
         </div>
         <div>
           <MusicSchoolTestimonials />
+        </div>
+        <div>
+          <UpcomingWebinars />
         </div>
       </body>
     </html>
