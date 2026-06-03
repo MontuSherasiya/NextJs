@@ -9,6 +9,7 @@ import WhyChooseUs from "../components/WhyChooseUs";
 import MusicSchoolTestimonials from "../components/TestimonialCards";
 import UpcomingWebinars from "../components/UpcomingWebinars";
 import Instructors from "../components/Instructors";
+import Footer from "@/components/Footer";
 
 const inter = Inter({
   subsets: ["latin"]
@@ -45,6 +46,9 @@ export default function RootLayout({
         </div>
         <div>
           <Instructors />
+        </div>
+        <div>
+          <Footer />
         </div>
       </body>
     </html>
